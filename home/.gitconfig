@@ -19,6 +19,9 @@
     graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
     precommit = diff --cached --diff-algorithm=minimal -w
     unmerged = diff --name-only --diff-filter=U
+    ignore = update-index --assume-unchanged
+    unignore = update-index --no-assume-unchanged
+    ignored = !git ls-files -v | grep "^[[:lower:]]"
 [mergetool]
     keepBackup = false
 [pager]
