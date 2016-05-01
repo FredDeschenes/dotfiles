@@ -31,7 +31,7 @@ Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -87,9 +87,11 @@ if !executable('ack')
 endif
 
 " NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 map ,m :NERDTreeFind<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Color stuff
 syntax enable
