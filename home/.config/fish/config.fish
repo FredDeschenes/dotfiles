@@ -36,3 +36,6 @@ if not test -d ~/.homesick/repos/homeshick/
 end
 source ~/.homesick/repos/homeshick/homeshick.fish
 source ~/.homesick/repos/homeshick/completions/homeshick.fish
+
+# Load 'upto' (to get completions)
+source ~/.config/fish/functions/upto.fish
