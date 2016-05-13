@@ -24,7 +24,7 @@ eval (python -m virtualfish)
 
 # Load prm-fish and setup completions
 if not test -d ~/dev/prm-fish/
-    git clone git@github.com:FredDeschenes/prm-fish.git ~/dev/prm-fish
+    git clone git@github.com:FredDeschenes/prm-fish.git $HOME/dev/prm-fish
     echo "Installed 'prm-fish'."
 end
 source ~/dev/prm-fish/prm.fish
