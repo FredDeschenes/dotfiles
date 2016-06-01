@@ -1,28 +1,40 @@
-" Set shell before loading Vundle (required for gitgutter)
 if has("unix")
+  " Set shell before loading Vim-Plug (required for gitgutter)
   set shell=/bin/bash
+
+  set backupdir=/tmp/
+  set directory=/tmp/
+else
+  set noswapfile
+  set nobackup
 endif
 
-" Remap leader key to spacebar
-let mapleader = "\<Space>"
-
-" Use Utf-8 by default
+let mapleader = "\<Space>" " Remap leader key to spacebar
 set encoding=utf-8
-
-" Use incremental search (search as you type)
 set incsearch
-
-" Tab stuff
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
-
-set nocompatible              " be iMproved, required
+set nocompatible
 set exrc " Enable use of directory-specific .vimrc
 set secure " Only run autocommands owned by me
+set number
+set mouse=a
+set scrolloff=5 " Always show 5 lines around cursor when scrolling
+set fileformats=unix,dos,mac " Use 'unix' fileformat by default
+filetype plugin indent on
 
-" Load vim-plug
+if has("gui")
+  set guioptions-=m  "remove menu bar
+  nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
+  set guifont=Sauce_Code_Powerline:h9:cANSI
+endif
+
+" Load vim-plug if not installed
 if executable("curl") && empty(glob("~/.vim/autoload/plug.vim"))
   execute '!curl --create-dirs -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
@@ -38,7 +50,7 @@ Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'scrooloose/nerdtree'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-sensible'
@@ -64,6 +76,7 @@ Plug 'xolox/vim-misc'
 
 if executable("ctags")
   Plug 'majutsushi/tagbar'
+  nnoremap <Leader>t :TagbarToggle<CR>
 endif
 
 if executable("rustc")
@@ -71,15 +84,13 @@ if executable("rustc")
 endif
 
 if has("unix") && !has("win32unix")
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 else
   Plug 'ervandew/supertab'
   let g:SuperTabDefaultCompletionType = "context"
 endif
 
 call plug#end()
-
-filetype plugin indent on    " required
 
 " vim-airline
 set timeoutlen=500
@@ -104,28 +115,10 @@ set background=dark
 set t_Co=256
 colorscheme molokai
 
-" Line numbers
-set number
-
-" Enable mouse
-set mouse=a
-
-" Command to auto-format a Json file
 command! FormatJSON %!python -m json.tool
 
 " YouCompleteMe setup
 let g:ycm_autoclose_preview_window_after_completion=1
-
-" Send swapfiles to temp dir
-if has("unix")
-  set backupdir=/tmp/
-  set directory=/tmp/
-else
-  set noswapfile
-endif
-
-" Always show 5 lines around cursor when scrolling
-set scrolloff=5
 
 " The Silver Searcher
 " NOTE: If using this in Cygwin, make sure you have the Cygwin version of 'ag'
@@ -135,29 +128,18 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Make ctrlp use ag too
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+  if has('win32') && !has('win32unix')
+    " Windows version of 'ag' has parameters in a different order...
+    let g:ctrlp_user_command = 'ag -i --nocolor --nogroup --hidden -g "" %s'
+  else
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+  endif
 endif
 
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-
-" Tagbar config
-nnoremap <Leader>t :TagbarToggle<CR>
 
 " Http log plugin
 autocmd BufNewFile,BufRead access*.log   set syntax=httplog
 
 " Gundo setup
 nnoremap <F5> :GundoToggle<CR>
-
-" GVim stuff
-if has("gui")
-  set guioptions-=m  "remove menu bar
-  nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-  set guioptions-=T  "remove toolbar
-  set guioptions-=r  "remove right-hand scroll bar
-  set guioptions-=L  "remove left-hand scroll bar
-  set guifont=Sauce_Code_Powerline:h9:cANSI
-endif
-
-" Always use Unix fileformat by default, but still allow dos
-set fileformats=unix,dos
