@@ -1,5 +1,7 @@
 " Set shell before loading Vundle (required for gitgutter)
-set shell=/bin/bash
+if has("unix")
+  set shell=/bin/bash
+endif
 
 " Remap leader key to spacebar
 let mapleader = "\<Space>"
@@ -21,11 +23,15 @@ set exrc " Enable use of directory-specific .vimrc
 set secure " Only run autocommands owned by me
 
 " Load vim-plug
-if empty(glob("~/.vim/autoload/plug.vim"))
-     execute '!curl --create-dirs -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+if executable("curl") && empty(glob("~/.vim/autoload/plug.vim"))
+  execute '!curl --create-dirs -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-call plug#begin('~/.vim/plugged')
+if has("unix")
+  call plug#begin('~/.vim/plugged')
+else
+  call plug#begin('~/vimfiles/bundle')
+endif
 
 Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
@@ -55,20 +61,18 @@ Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'jiangmiao/auto-pairs'
 
 if executable("ctags")
-    Plug 'majutsushi/tagbar'
+  Plug 'majutsushi/tagbar'
 endif
 
 if executable("rustc")
-    Plug 'rust-lang/rust.vim'
+  Plug 'rust-lang/rust.vim'
 endif
 
-if has("unix")
-    if !has("win32unix")
-        Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-    else
-        Plug 'ervandew/supertab'
-        let g:SuperTabDefaultCompletionType = "context"
-    endif
+if has("unix") && !has("win32unix")
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+else
+  Plug 'ervandew/supertab'
+  let g:SuperTabDefaultCompletionType = "context"
 endif
 
 call plug#end()
@@ -83,7 +87,7 @@ let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
 
 if !executable('ack')
-    let g:ackprg = 'ack.cmd'
+  let g:ackprg = 'ack.cmd'
 endif
 
 " NERDTree
@@ -112,8 +116,12 @@ command! FormatJSON %!python -m json.tool
 let g:ycm_autoclose_preview_window_after_completion=1
 
 " Send swapfiles to temp dir
-set backupdir=/tmp/
-set directory=/tmp/
+if has("unix")
+  set backupdir=/tmp/
+  set directory=/tmp/
+else
+  set noswapfile
+endif
 
 " Always show 5 lines around cursor when scrolling
 set scrolloff=5
@@ -139,3 +147,17 @@ autocmd BufNewFile,BufRead access*.log   set syntax=httplog
 
 " Gundo setup
 nnoremap <F5> :GundoToggle<CR>
+
+" GVim stuff
+if has("gui")
+  set guioptions-=m  "remove menu bar
+  nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
+  set guifont=Sauce_Code_Powerline:h9:cANSI
+  " Maximize window on opening it
+  " Found here : http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
+  " Change to ~x on English Windows versions (wtf...)
+  au GUIEnter * simalt ~n
+endif
