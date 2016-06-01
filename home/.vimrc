@@ -59,6 +59,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'udalov/kotlin-vim'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'jiangmiao/auto-pairs'
+Plug 'xolox/vim-shell'
+Plug 'xolox/vim-misc'
 
 if executable("ctags")
   Plug 'majutsushi/tagbar'
@@ -156,8 +158,7 @@ if has("gui")
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
   set guifont=Sauce_Code_Powerline:h9:cANSI
-  " Maximize window on opening it
-  " Found here : http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
-  " Change to ~x on English Windows versions (wtf...)
-  au GUIEnter * simalt ~n
 endif
+
+" Always use Unix fileformat by default, but still allow dos
+set fileformats=unix,dos
