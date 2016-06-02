@@ -31,7 +31,7 @@ if has("gui")
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
-  set guifont=Sauce_Code_Powerline:h9:cANSI
+  set guifont=Hack:h9:cANSI
 endif
 
 " Load vim-plug if not installed
