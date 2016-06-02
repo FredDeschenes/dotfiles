@@ -27,11 +27,17 @@ filetype plugin indent on
 
 if has("gui")
   set guioptions-=m  "remove menu bar
-  nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
+  nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
   set guifont=Hack:h9:cANSI
+  if has("win32")
+    " Maximize window on launch
+    " http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
+    " ~x = English, ~n = French
+    au GUIEnter * simalt ~n
+  endif
 endif
 
 " Load vim-plug if not installed
