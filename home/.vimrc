@@ -122,6 +122,7 @@ set t_Co=256
 colorscheme molokai
 
 command! FormatJSON %!python -m json.tool
+command! RemoveTrailingWhitespace %s/\s*$//g
 
 " YouCompleteMe setup
 let g:ycm_autoclose_preview_window_after_completion=1
