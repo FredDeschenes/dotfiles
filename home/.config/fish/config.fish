@@ -17,7 +17,13 @@ end; or begin
     echo "'keychain' is not installed."
 end
 
-set -gx PATH ~/bin ~/.local/bin /opt/local/bin /opt/local/sbin /usr/local/sbin $PATH
+set path_prefixes ~/bin ~/.local/bin /opt/local/bin /opt/local/sbin /usr/local/sbin
+
+for p in (seq (count $path_prefixes))
+    if test -d $path_prefixes[$p]
+        set -U fish_user_paths $path_prefixes[$p] $fish_user_paths
+    end
+end
 
 # TODO: Find a way to efficiently check if virtualfish is installed
 eval (python -m virtualfish)
