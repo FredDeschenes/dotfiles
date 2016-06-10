@@ -30,14 +30,14 @@ eval (python -m virtualfish)
 
 # Load prm-fish and setup completions
 if not test -d ~/dev/prm-fish/
-    git clone git@github.com:FredDeschenes/prm-fish.git $HOME/dev/prm-fish
+    git clone https://github.com:FredDeschenes/prm-fish.git $HOME/dev/prm-fish
     echo "Installed 'prm-fish'."
 end
 source ~/dev/prm-fish/prm.fish
 
 # Load homeshick + completions
 if not test -d ~/.homesick/repos/homeshick/
-    git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+    git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
     echo "Installed 'homeshick'."
 end
 source ~/.homesick/repos/homeshick/homeshick.fish
