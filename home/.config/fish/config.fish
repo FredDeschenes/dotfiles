@@ -1,3 +1,6 @@
+set -eg EDITOR
+set -Ux EDITOR (which vim)
+
 # 2 following functions are there for Cygwin, somehow this is needed...
 function x86
     echo '(x86)'
