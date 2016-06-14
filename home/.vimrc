@@ -118,8 +118,10 @@ autocmd StdinReadPre * let s:std_in=1
 " Color stuff
 syntax enable
 set background=dark
-set t_Co=256
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
 colorscheme molokai
+set termguicolors
 
 command! FormatJSON %!python -m json.tool
 command! RemoveTrailingWhitespace %s/\s*$//g
