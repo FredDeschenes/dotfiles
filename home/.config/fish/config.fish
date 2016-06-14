@@ -21,7 +21,9 @@ set path_prefixes ~/bin ~/.local/bin /opt/local/bin /opt/local/sbin /usr/local/s
 
 for p in (seq (count $path_prefixes))
     if test -d $path_prefixes[$p]
-        set -U fish_user_paths $path_prefixes[$p] $fish_user_paths
+        if not contains $path_prefixes[$p] $fish_user_paths
+            set -U fish_user_paths $path_prefixes[$p] $fish_user_paths
+        end
     end
 end
 
