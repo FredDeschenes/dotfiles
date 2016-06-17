@@ -57,7 +57,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'joshdick/airline-onedark.vim'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
@@ -103,7 +103,7 @@ call plug#end()
 set timeoutlen=500
 set laststatus=2
 set noshowmode
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 
 if !executable('ack')
