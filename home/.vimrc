@@ -63,7 +63,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tomasr/molokai'
+Plug 'joshdick/onedark.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/LargeFile'
 Plug 'tfnico/vim-gradle'
@@ -120,11 +120,9 @@ syntax enable
 set background=dark
 if has("termguicolors")
   " 24 bit color
-  set t_8f=[38;2;%lu;%lu;%lum
-  set t_8b=[48;2;%lu;%lu;%lum
-set termguicolors
+  set termguicolors
 end
-colorscheme molokai
+colorscheme onedark
 
 command! FormatJSON %!python -m json.tool
 command! RemoveTrailingWhitespace %s/\s*$//g
