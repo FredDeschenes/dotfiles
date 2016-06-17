@@ -79,6 +79,7 @@ Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-shell'
 Plug 'xolox/vim-misc'
+Plug 'sheerun/vim-polyglot'
 
 if executable("ctags")
   Plug 'majutsushi/tagbar'
