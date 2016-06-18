@@ -51,7 +51,6 @@ else
   call plug#begin('~/vimfiles/bundle')
 endif
 
-Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
@@ -105,10 +104,6 @@ set laststatus=2
 set noshowmode
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
-
-if !executable('ack')
-  let g:ackprg = 'ack.cmd'
-endif
 
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
