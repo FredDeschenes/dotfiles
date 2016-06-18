@@ -62,7 +62,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'joshdick/onedark.vim'
+Plug 'FredDeschenes/onedark.vim', { 'branch': 'arc-gtk-background' }
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/LargeFile'
 Plug 'tfnico/vim-gradle'
