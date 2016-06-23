@@ -24,6 +24,7 @@ set mouse=a
 set scrolloff=5 " Always show 5 lines around cursor when scrolling
 set fileformats=unix,dos,mac " Use 'unix' fileformat by default
 filetype plugin indent on
+set colorcolumn=80
 
 if has("gui")
   set guioptions-=m  "remove menu bar
