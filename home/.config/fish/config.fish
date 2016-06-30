@@ -20,6 +20,10 @@ end; or begin
     echo "'keychain' is not installed."
 end
 
+command_exists thefuck; and begin
+    eval (thefuck --alias | tr '\n' ';')
+end
+
 set path_prefixes ~/bin ~/.local/bin /opt/local/bin /opt/local/sbin /usr/local/sbin
 
 for p in (seq (count $path_prefixes))
