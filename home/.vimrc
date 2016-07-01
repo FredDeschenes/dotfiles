@@ -52,7 +52,7 @@ else
   call plug#begin('~/vimfiles/bundle')
 endif
 
-Plug 'rking/ag.vim'
+Plug 'mhinz/vim-grepper', { 'on': 'Grepper' }
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'scrooloose/nerdtree'
@@ -150,3 +150,10 @@ autocmd BufNewFile,BufRead access*.log   set syntax=httplog
 
 " Gundo setup
 nnoremap <F5> :GundoToggle<CR>
+
+" Grepper config
+let g:grepper = {
+  \ 'tools': ['ag', 'git', 'grep'],
+  \ 'highlight': 1,
+  \ }
+cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Grepper' : 'grep')<CR>
