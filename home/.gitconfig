@@ -22,6 +22,7 @@
     ignore = update-index --assume-unchanged
     unignore = update-index --no-assume-unchanged
     ignored = !git ls-files -v | grep "^[[:lower:]]"
+    fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^;  }; f"
 [mergetool]
     keepBackup = false
 [pager]
