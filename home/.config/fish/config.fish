@@ -24,7 +24,7 @@ command_exists thefuck; and begin
     eval (thefuck --alias | tr '\n' ';')
 end
 
-set path_prefixes ~/bin ~/.local/bin /opt/local/bin /opt/local/sbin /usr/local/sbin
+set path_prefixes ~/bin ~/.local/bin /opt/local/bin /opt/local/sbin /usr/local/sbin /usr/local/bin
 
 for p in (seq (count $path_prefixes))
     if test -d $path_prefixes[$p]
