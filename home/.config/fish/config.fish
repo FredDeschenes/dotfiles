@@ -16,12 +16,6 @@ end
 
 command_exists keychain; and begin
     keychain --eval --quiet --nogui --quick | sed 's/[[:space:]]\?and//g' | source
-end; or begin
-    echo "'keychain' is not installed."
-end
-
-command_exists thefuck; and begin
-    eval (thefuck --alias | tr '\n' ';')
 end
 
 set path_prefixes ~/bin ~/.local/bin /opt/local/bin /opt/local/sbin /usr/local/sbin /usr/local/bin
@@ -34,21 +28,25 @@ for p in (seq (count $path_prefixes))
     end
 end
 
-# TODO: Find a way to efficiently check if virtualfish is installed
-eval (python -m virtualfish)
+set --local pip_list (pip list)
+
+command echo $pip_list | grep virtualfish>/dev/null
+if test $status = 0
+    eval (python -m virtualfish)
+end
+
+
+command echo $pip_list | grep thefuck>/dev/null
+if test $status = 0
+    eval (thefuck --alias | tr '\n' ';')
+end
 
 # Load prm-fish and setup completions
-if not test -d ~/dev/prm-fish/
-    git clone https://github.com/FredDeschenes/prm-fish.git $HOME/dev/prm-fish
-    echo "Installed 'prm-fish'."
+if test -d ~/dev/prm-fish/
+    source ~/dev/prm-fish/prm.fish
 end
-source ~/dev/prm-fish/prm.fish
 
 # Load homeshick + completions
-if not test -d ~/.homesick/repos/homeshick/
-    git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-    echo "Installed 'homeshick'."
-end
 source ~/.homesick/repos/homeshick/homeshick.fish
 source ~/.homesick/repos/homeshick/completions/homeshick.fish
 
