@@ -1,15 +1,6 @@
 set -eg EDITOR
 set -Ux EDITOR (which vim)
 
-# 2 following functions are there for Cygwin, somehow this is needed...
-function x86
-    echo '(x86)'
-end
-
-function R
-    echo '(R)'
-end
-
 function command_exists
     command --search $argv[1]>/dev/null
 end
