@@ -1,6 +1,6 @@
 [user]
-    email = tifred2004@gmail.com
     name = Fred Deschenes
+    useConfigOnly = true
 [core]
     editor = vim
     excludesfile = ~/.global_gitignore
