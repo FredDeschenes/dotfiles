@@ -123,6 +123,8 @@ colorscheme onedark
 
 command! FormatJSON %!python -m json.tool
 command! RemoveTrailingWhitespace %s/\s*$//g
+command! ReplaceTabsWith2Spaces %s/\t/  /g
+command! ReplaceTabsWith4Spaces %s/\t/    /g
 
 " YouCompleteMe setup
 let g:ycm_autoclose_preview_window_after_completion=1
