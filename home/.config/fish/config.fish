@@ -19,7 +19,7 @@ for p in (seq (count $path_prefixes))
     end
 end
 
-set --local pip_list (pip list)
+set --local pip_list (pip list --format=legacy)
 
 command echo $pip_list | grep virtualfish>/dev/null
 if test $status = 0
