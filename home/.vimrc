@@ -65,7 +65,7 @@ Plug 'tpope/vim-repeat'
 Plug 'FredDeschenes/onedark.vim', { 'branch': 'arc-gtk-background' }
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/LargeFile'
-Plug 'tfnico/vim-gradle'
+Plug 'gisphm/vim-gradle'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'fidian/hexmode'
