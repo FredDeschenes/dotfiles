@@ -99,3 +99,7 @@ alias gl="git log"
 alias gs="git st"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ssh-genkey="ssh-keygen -o -a 100 -t ed25519"
+
+if [ -d "${HOME}/dev/prm/" ]; then
+    alias prm=". ${HOME}/dev/prm/prm.sh"
+fi
