@@ -6,6 +6,7 @@ antigen bundle archlinux
 antigen bundle branch
 antigen bundle git
 antigen bundle gradle
+antigen bundle redis-cli
 antigen bundle ssh-agent
 antigen bundle systemd
 antigen bundle tmux
