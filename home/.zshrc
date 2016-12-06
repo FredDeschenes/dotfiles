@@ -51,7 +51,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom/
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(branch git gradle ssh-agent thefuck tmux zsh_reload)
+plugins=(branch git gradle ssh-agent tmux zsh_reload)
 
 # SSH Agent setup
 zstyle :omz:plugins:ssh-agent agent-forwarding on
