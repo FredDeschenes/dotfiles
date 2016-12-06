@@ -2,6 +2,7 @@ source ~/dev/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
+antigen bundle archlinux
 antigen bundle branch
 antigen bundle git
 antigen bundle gradle
