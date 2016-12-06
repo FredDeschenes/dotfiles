@@ -12,7 +12,10 @@ antigen bundle systemd
 antigen bundle tmux
 antigen bundle zsh_reload
 
-antigen bundle zsh-users/zsh-autosuggestions
+if [ "$OSTYPE" != "cygwin" ];then
+    # This runs awefully slow on Cygwin
+    antigen bundle zsh-users/zsh-autosuggestions
+fi
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
