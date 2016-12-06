@@ -7,6 +7,7 @@ antigen bundle branch
 antigen bundle git
 antigen bundle gradle
 antigen bundle ssh-agent
+antigen bundle systemd
 antigen bundle tmux
 antigen bundle zsh_reload
 
