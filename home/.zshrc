@@ -1,4 +1,9 @@
-source ~/dev/antigen/antigen.zsh
+antigen_dir=$HOME/dev/antigen
+if [ ! -d $antigen_dir ];then
+    git clone https://github.com/zsh-users/antigen.git $antigen_dir
+fi
+
+source $antigen_dir/antigen.zsh
 
 antigen use oh-my-zsh
 
