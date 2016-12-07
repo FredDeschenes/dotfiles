@@ -23,10 +23,15 @@ if [ "$OSTYPE" != "cygwin" ];then
 fi
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
 
 antigen theme simple
 
 antigen apply
+
+# Keybindings for "zsh-history-substring-search" plugin
+bindkey '\eOA' history-substring-search-up
+bindkey '\eOB' history-substring-search-down
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent lifetime 4h
