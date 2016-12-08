@@ -30,7 +30,7 @@ antigen theme simple
 antigen apply
 
 # Set zsh-users/zsh-autosuggestions suggestion color
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=grey'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
 
 # Keybindings for "zsh-history-substring-search" plugin
 bindkey '\eOA' history-substring-search-up
