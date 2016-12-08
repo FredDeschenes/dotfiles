@@ -25,7 +25,11 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 
-antigen theme simple
+if [ "$OSTYPE" = "cygwin" ];then
+    antigen theme simple
+else
+    antigen theme dracula/zsh dracula
+fi
 
 antigen apply
 
