@@ -16,6 +16,7 @@ antigen bundle ssh-agent
 antigen bundle systemd
 antigen bundle tmux
 antigen bundle zsh_reload
+antigen bundle virtualenvwrapper
 
 if [ "$OSTYPE" != "cygwin" ];then
     # This runs awefully slow on Cygwin
