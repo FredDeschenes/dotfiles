@@ -7,7 +7,9 @@ source $antigen_dir/antigen.zsh
 
 antigen use oh-my-zsh
 
-antigen bundle archlinux
+if [ -f "/etc/arch-release"  ]; then
+    antigen bundle archlinux
+fi
 antigen bundle branch
 antigen bundle git
 antigen bundle gradle
