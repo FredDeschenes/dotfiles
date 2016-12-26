@@ -1,3 +1,20 @@
+homeshick_dir="$HOME/.homesick/repos/homeshick"
+if [ -d $homeshick_dir ]; then
+    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+    fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+fi
+
+prm_dir="$HOME/dev/prm"
+if [ -d $prm_dir ]; then
+    alias prm=". ${prm_dir}/prm.sh"
+fi
+
+if [ -f $HOME/.cargo/env ]; then
+    source $HOME/.cargo/env
+fi
+
+fpath=($HOME/.zfunc $fpath)
+
 antigen_dir=$HOME/dev/antigen
 if [ ! -d $antigen_dir ];then
     git clone https://github.com/zsh-users/antigen.git $antigen_dir
@@ -56,14 +73,3 @@ alias gl="git log"
 alias gs="git st"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ssh-genkey="ssh-keygen -o -a 100 -t ed25519"
-
-homeshick_dir="$HOME/.homesick/repos/homeshick"
-if [ -d $homeshick_dir ]; then
-    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-    fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
-fi
-
-prm_dir="$HOME/dev/prm"
-if [ -d $prm_dir ]; then
-    alias prm=". ${prm_dir}/prm.sh"
-fi
