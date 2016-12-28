@@ -16,6 +16,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+set smartindent
 set nocompatible
 set exrc " Enable use of directory-specific .vimrc
 set secure " Only run autocommands owned by me
@@ -25,6 +26,7 @@ set scrolloff=5 " Always show 5 lines around cursor when scrolling
 set fileformats=unix,dos,mac " Use 'unix' fileformat by default
 filetype plugin indent on
 set colorcolumn=80
+set cursorline
 
 if has("gui")
   set guioptions-=m  "remove menu bar
