@@ -1,7 +1,4 @@
 # Installation
 
-Install [homeshick](https://github.com/andsens/homeshick)
-```
-$ homeshick clone FredDeschenes/dotfiles
-$ homeshick link dotfiles
-```
+* Install [GNU stow](https://www.gnu.org/software/stow/)
+* `make`

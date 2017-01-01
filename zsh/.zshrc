@@ -1,9 +1,3 @@
-homeshick_dir="$HOME/.homesick/repos/homeshick"
-if [ -d $homeshick_dir ]; then
-    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-    fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
-fi
-
 prm_dir="$HOME/dev/prm"
 if [ -d $prm_dir ]; then
     alias prm=". ${prm_dir}/prm.sh"
