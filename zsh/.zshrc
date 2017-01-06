@@ -11,7 +11,7 @@ fpath=($HOME/.zfunc $fpath)
 
 export PATH=$HOME/.local/bin:$PATH
 
-antigen_dir=$HOME/dev/antigen
+antigen_dir=$HOME/.antigen-git
 if [ ! -d $antigen_dir ];then
     git clone https://github.com/zsh-users/antigen.git $antigen_dir
 fi
