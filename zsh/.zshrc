@@ -43,6 +43,8 @@ antigen bundle zsh-users/zsh-history-substring-search
 
 antigen theme dracula/zsh dracula
 
+antigen bundle jamesob/desk shell_plugins/zsh
+
 antigen apply
 
 # Set zsh-users/zsh-autosuggestions suggestion color
@@ -67,3 +69,6 @@ alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ssh-genkey="ssh-keygen -o -a 100 -t ed25519"
 alias :q="exit"
 alias :Q="exit"
+
+# Hook for desk activation
+[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
