@@ -72,3 +72,8 @@ alias :Q="exit"
 
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
+
+# Terminix initilization stuff
+if [[ $TERMINIX_ID ]] && [[ -f /etc/profile.d/vte.sh ]]; then
+    source /etc/profile.d/vte.sh
+fi
