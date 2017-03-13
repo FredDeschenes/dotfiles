@@ -8,6 +8,7 @@ if [ -f $HOME/.cargo/env ]; then
 fi
 
 fpath=($HOME/.zfunc $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 export PATH=$HOME/.local/bin:$PATH
 
