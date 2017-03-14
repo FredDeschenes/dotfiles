@@ -8,7 +8,6 @@ if [ -f $HOME/.cargo/env ]; then
 fi
 
 fpath=($HOME/.zfunc $fpath)
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 export PATH=$HOME/.local/bin:$PATH
 
@@ -46,6 +45,8 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen theme dracula/zsh dracula
 
 antigen bundle jamesob/desk shell_plugins/zsh
+
+antigen bundle zsh-users/zsh-completions
 
 antigen apply
 
