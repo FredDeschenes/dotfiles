@@ -24,6 +24,8 @@ if [ -f "/etc/arch-release"  ]; then
     antigen bundle archlinux
 fi
 antigen bundle branch
+antigen bundle docker
+antigen bundle docker-compose
 antigen bundle git
 antigen bundle gradle
 antigen bundle redis-cli
