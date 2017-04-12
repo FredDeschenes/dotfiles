@@ -59,12 +59,13 @@ Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'FredDeschenes/onedark.vim', { 'branch': 'arc-gtk-background' }
+Plug 'jdkanani/vim-material-theme'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/LargeFile'
 Plug 'gisphm/vim-gradle'
@@ -105,7 +106,7 @@ call plug#end()
 set timeoutlen=500
 set laststatus=2
 set noshowmode
-let g:airline_theme = 'onedark'
+let g:airline_theme = 'wombat'
 let g:airline_powerline_fonts = 1
 
 " NERDTree
@@ -115,13 +116,13 @@ map ,m :NERDTreeFind<CR>
 autocmd StdinReadPre * let s:std_in=1
 
 " Color stuff
-syntax enable
-set background=dark
 if has("termguicolors")
   " 24 bit color
   set termguicolors
 end
-colorscheme onedark
+syntax enable
+set background=dark
+colorscheme material-theme
 
 command! FormatJSON %!python -m json.tool
 command! RemoveTrailingWhitespace %s/\s*$//g
