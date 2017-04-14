@@ -78,6 +78,8 @@ if type "thefuck" > /dev/null; then
     eval $(thefuck --alias)
 fi
 
+compdef _gradlew_tasks gw
+
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
 
