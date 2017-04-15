@@ -7,7 +7,7 @@ if [ -f $HOME/.cargo/env ]; then
     source $HOME/.cargo/env
 fi
 
-fpath=($HOME/.zfunc $fpath)
+fpath=($HOME/.zfunc /usr/local/share/zsh-completions $fpath)
 
 export PATH=$HOME/.local/bin:$PATH
 
