@@ -65,7 +65,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
-Plug 'FredDeschenes/onedark.vim', { 'branch': 'arc-gtk-background' }
+Plug 'joshdick/onedark.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/LargeFile'
 Plug 'gisphm/vim-gradle'
@@ -122,6 +122,9 @@ if has("termguicolors")
   " 24 bit color
   set termguicolors
 end
+let g:onedark_color_overrides = {
+\ "black": {"gui": "#2F343F", "cterm": "235", "cterm16": "0" },
+\}
 colorscheme onedark
 
 command! FormatJSON %!python -m json.tool
