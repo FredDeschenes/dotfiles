@@ -9,7 +9,7 @@ fi
 
 fpath=($HOME/.zfunc /usr/local/share/zsh-completions $fpath)
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/sbin/:$PATH
 
 antigen_dir=$HOME/.antigen-git
 if [ ! -d $antigen_dir ];then
