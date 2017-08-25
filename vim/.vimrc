@@ -161,7 +161,7 @@ nnoremap <F5> :GundoToggle<CR>
 
 " Grepper config
 let g:grepper = {
-  \ 'tools': ['ag', 'git', 'grep'],
+  \ 'tools': ['rg', 'ag', 'git', 'grep'],
   \ 'highlight': 1,
   \ }
 cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Grepper' : 'grep')<CR>
