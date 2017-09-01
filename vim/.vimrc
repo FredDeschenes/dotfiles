@@ -83,6 +83,7 @@ Plug 'xolox/vim-shell'
 Plug 'xolox/vim-misc'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ajh17/VimCompletesMe'
 
 if executable("ctags")
   Plug 'majutsushi/tagbar'
@@ -91,13 +92,6 @@ endif
 
 if executable("rustc")
   Plug 'rust-lang/rust.vim'
-endif
-
-if has("unix") && !has("win32unix")
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-else
-  Plug 'ervandew/supertab'
-  let g:SuperTabDefaultCompletionType = "context"
 endif
 
 call plug#end()
@@ -131,9 +125,6 @@ command! FormatJSON %!python -m json.tool
 command! RemoveTrailingWhitespace %s/\s*$//g
 command! ReplaceTabsWith2Spaces %s/\t/  /g
 command! ReplaceTabsWith4Spaces %s/\t/    /g
-
-" YouCompleteMe setup
-let g:ycm_autoclose_preview_window_after_completion=1
 
 " The Silver Searcher
 " NOTE: If using this in Cygwin, make sure you have the Cygwin version of 'ag'
