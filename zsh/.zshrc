@@ -51,8 +51,6 @@ antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 antigen bundle jamesob/desk shell_plugins/zsh
 
-antigen bundle zsh-users/zsh-completions
-
 antigen apply
 
 # Set zsh-users/zsh-autosuggestions suggestion color
