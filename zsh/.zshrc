@@ -47,6 +47,7 @@ antigen bundle zsh-users/zsh-history-substring-search
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 SPACESHIP_EXEC_TIME_SHOW=false
+SPACESHIP_BATTERY_SHOW=false
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 antigen bundle jamesob/desk shell_plugins/zsh
