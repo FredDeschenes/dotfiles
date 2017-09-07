@@ -84,6 +84,7 @@ Plug 'xolox/vim-misc'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ajh17/VimCompletesMe'
+Plug 'saltstack/salt-vim'
 
 if executable("ctags")
   Plug 'majutsushi/tagbar'
