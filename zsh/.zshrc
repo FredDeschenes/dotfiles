@@ -48,6 +48,11 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 SPACESHIP_EXEC_TIME_SHOW=false
 SPACESHIP_BATTERY_SHOW=false
+if [ "$OSTYPE" = "cygwin" ]; then
+    # Incredibly slow on Cygwin
+    # See : https://github.com/robbyrussell/oh-my-zsh/issues/5486
+    SPACESHIP_GIT_STATUS_SHOW=false
+fi
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 antigen bundle jamesob/desk shell_plugins/zsh
