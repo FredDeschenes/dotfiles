@@ -9,19 +9,20 @@
 [color]
     ui = true
 [alias]
-    latt = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-    st = status -s
     branches = branch -a
-    tags = tag
-    stashes = stash list
-    unstage = reset -q HEAD --
     discard = checkout --
-    graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
-    precommit = diff --cached --diff-algorithm=minimal -w
-    unmerged = diff --name-only --diff-filter=U
-    ignore = update-index --assume-unchanged
-    unignore = update-index --no-assume-unchanged
-    ignored = !git ls-files -v | grep "^[[:lower:]]"
     fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^;  }; f"
+    graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+    ignore = update-index --assume-unchanged
+    ignored = !git ls-files -v | grep "^[[:lower:]]"
+    latt = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    precommit = diff --cached --diff-algorithm=minimal -w
+    remotes = remote -v
+    st = status -s
+    stashes = stash list
+    tags = tag
+    unignore = update-index --no-assume-unchanged
+    unmerged = diff --name-only --diff-filter=U
+    unstage = reset -q HEAD --
 [mergetool]
     keepBackup = false
