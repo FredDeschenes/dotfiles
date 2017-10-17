@@ -1,8 +1,8 @@
 BoldAsFont=no
-FontHeight=10
+FontHeight=12
 Columns=100
 Rows=24
-Font=Hack
+Font=ProFont for Powerline
 Transparency=off
 Term=xterm-256color
 AllowBlinking=no
