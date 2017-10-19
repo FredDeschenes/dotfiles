@@ -83,7 +83,7 @@ Plug 'xolox/vim-shell'
 Plug 'xolox/vim-misc'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ajh17/VimCompletesMe'
+Plug 'maralla/completor.vim'
 Plug 'saltstack/salt-vim'
 
 if executable("ctags")
@@ -162,3 +162,8 @@ cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Grepper' : 'grep')<CR
 if has("directx") && $VIM_USE_DIRECTX != '0'
   set renderoptions=type:directx,taamode:1
 endif
+
+" Completor
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
