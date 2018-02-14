@@ -53,7 +53,7 @@ if [ "$OSTYPE" = "cygwin" ]; then
     # See : https://github.com/robbyrussell/oh-my-zsh/issues/5486
     SPACESHIP_GIT_STATUS_SHOW=false
 fi
-antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 
 antigen bundle jamesob/desk shell_plugins/zsh
 
