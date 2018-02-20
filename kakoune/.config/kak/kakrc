@@ -1,0 +1,5 @@
+colorscheme base16
+
+addhl global/ number_lines
+
+set global modelinefmt '%sh{date}'
