@@ -1,1 +1,1 @@
-set guifont=Profont\ for\ powerline:h14
+set guifont=ProFont\ for\ Powerline\ 14
