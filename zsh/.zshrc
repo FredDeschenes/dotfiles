@@ -31,6 +31,7 @@ antigen use oh-my-zsh
 if [ -f "/etc/arch-release"  ]; then
     antigen bundle archlinux
 fi
+antigen bundle aws
 antigen bundle branch
 antigen bundle docker
 antigen bundle docker-compose
