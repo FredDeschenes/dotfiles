@@ -53,14 +53,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 
 if [ "$OSTYPE" = "cygwin" ]; then
-    SPACESHIP_PROMPT_ADD_NEWLINE=false
-    SPACESHIP_PROMPT_SEPARATE_LINE=false
-    SPACESHIP_EXEC_TIME_SHOW=false
-    SPACESHIP_BATTERY_SHOW=false
-    SPACESHIP_KUBECONTEXT_SHOW=false
-    SPACESHIP_GIT_STATUS_SHOW=false
-    # See : https://github.com/robbyrussell/oh-my-zsh/issues/5486
-    antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+    antigen theme subnixr/minimal minimal
 else
     export PROMPT_END_TAG=' $'
     export AM_ERROR_ON_START_TAG=1
