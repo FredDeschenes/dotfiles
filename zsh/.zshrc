@@ -15,7 +15,12 @@ if [ -f $HOME/.cargo/env ]; then
     source $HOME/.cargo/env
 fi
 
-fpath=($HOME/.zfunc /usr/local/share/zsh-completions $fpath)
+if [ ! -d $HOME/.zsh/gradle-completion ]; then
+    git clone git://github.com/gradle/gradle-completion $HOME/.zsh/gradle-completion
+fi
+compdef gw='gradle'
+
+fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completions $fpath)
 
 export PATH=$HOME/.local/bin:/usr/local/sbin/:$PATH
 
@@ -36,7 +41,6 @@ antigen bundle branch
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle git
-antigen bundle gradle
 antigen bundle redis-cli
 antigen bundle ssh-agent
 antigen bundle systemd
