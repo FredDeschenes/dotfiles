@@ -18,7 +18,6 @@ fi
 if [ ! -d $HOME/.zsh/gradle-completion ]; then
     git clone git://github.com/gradle/gradle-completion $HOME/.zsh/gradle-completion
 fi
-compdef gw='gradle'
 
 fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completions $fpath)
 
@@ -101,7 +100,7 @@ if type "thefuck" > /dev/null; then
     eval $(thefuck --alias)
 fi
 
-compdef _gradlew_tasks gw
+compdef gw='gradle'
 
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
