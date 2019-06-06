@@ -56,19 +56,12 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 
-# Overrides the regular function from the theme to prevent calling
-# 'git status --porcelain' which is super slow on big repos
-function mnml_git_light {
-    local statc="%{\e[0;3${MNML_OK_COLOR}m%}" # assume clean
-    local bname="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
-
-    if [ -n "$bname" ]; then
-        printf '%b' "$statc$bname%{\e[0m%}"
-    fi
-}
-
-antigen theme subnixr/minimal minimal
-MNML_RPROMPT=('mnml_cwd 2 0' mnml_git_light)
+SPACESHIP_GIT_STATUS_SHOW=false
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_SEPARATE_LINE=false
+SPACESHIP_EXEC_TIME_SHOW=false
+SPACESHIP_BATTERY_SHOW=false
+antigen theme denysdovhan/spaceship-prompt
 
 # https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
