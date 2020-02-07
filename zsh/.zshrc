@@ -54,12 +54,9 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 
-SPACESHIP_GIT_STATUS_SHOW=false
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_PROMPT_SEPARATE_LINE=false
-SPACESHIP_EXEC_TIME_SHOW=false
-SPACESHIP_BATTERY_SHOW=false
-antigen theme denysdovhan/spaceship-prompt
+export TYPEWRITTEN_CURSOR="block"
+export TYPEWRITTEN_MULTILINE=false
+antigen theme reobin/typewritten
 
 # https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
