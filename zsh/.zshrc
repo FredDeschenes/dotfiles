@@ -1,4 +1,14 @@
-. ~/.ls_colors
+if type "vivid" > /dev/null; then
+  # https://github.com/sharkdp/vivid
+  export LS_COLORS="$(vivid generate snazzy)"
+else if [ -f ~/.ls_colors ]
+  export LS_COLORS="$(cat ~/.ls_colors)"
+fi
+
+# Note: Bash on Windows does not currently apply umask properly.
+if [[ "$(umask)" = "000" ]]; then
+  umask 0022
+fi
 
 if grep -q Microsoft /proc/version; then
     # Use Windows Docker on WSL
