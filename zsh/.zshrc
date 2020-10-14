@@ -110,3 +110,9 @@ if [[ $TERMINIX_ID ]] && [[ -f /etc/profile.d/vte.sh ]]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if command -v lsd &> /dev/null
+then
+  alias ls="lsd"
+fi
+
