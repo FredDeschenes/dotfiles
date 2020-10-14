@@ -71,8 +71,6 @@ antigen theme reobin/typewritten
 # https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
 
-antigen bundle jamesob/desk shell_plugins/zsh
-
 antigen apply
 
 # Set zsh-users/zsh-autosuggestions suggestion color
