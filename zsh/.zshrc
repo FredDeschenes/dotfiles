@@ -38,6 +38,16 @@ export TYPEWRITTEN_MULTILINE=false
 # https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
 
+source <(antibody init)
+antibody bundle < ~/.zsh_plugins
+
+# Set zsh-users/zsh-autosuggestions suggestion color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
+
+# Keybindings for "zsh-history-substring-search" plugin
+bindkey '\eOA' history-substring-search-up
+bindkey '\eOB' history-substring-search-down
+
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent lifetime 4h
 
@@ -77,14 +87,3 @@ fi
 if [ ! -f ~/.local/bin/antibody ]; then
     curl -sfL git.io/antibody | sh -s - -b ~/.local/bin
 fi
-
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins
-
-# Set zsh-users/zsh-autosuggestions suggestion color
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
-
-# Keybindings for "zsh-history-substring-search" plugin
-bindkey '\eOA' history-substring-search-up
-bindkey '\eOB' history-substring-search-down
-
