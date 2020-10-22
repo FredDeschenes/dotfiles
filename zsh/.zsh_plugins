@@ -1,4 +1,4 @@
-robbyrussell/oh-my-zsh path:lib
+ohmyzsh/ohmyzsh path:lib
 ohmyzsh/ohmyzsh path:plugins/archlinux
 ohmyzsh/ohmyzsh path:plugins/aws
 ohmyzsh/ohmyzsh path:plugins/branch
