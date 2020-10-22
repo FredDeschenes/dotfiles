@@ -32,53 +32,11 @@ fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completion
 
 export PATH=$HOME/.local/bin:/usr/local/sbin/:$PATH
 
-antigen_dir=$HOME/.antigen-git
-if [ ! -d $antigen_dir ];then
-    git clone https://github.com/zsh-users/antigen.git $antigen_dir
-fi
-
-source $antigen_dir/antigen.zsh
-
-antigen use oh-my-zsh
-
-if [ -f "/etc/arch-release"  ]; then
-    antigen bundle archlinux
-fi
-antigen bundle aws
-antigen bundle branch
-antigen bundle docker
-antigen bundle docker-compose
-antigen bundle git
-antigen bundle redis-cli
-antigen bundle ssh-agent
-antigen bundle systemd
-antigen bundle tmux
-antigen bundle zsh_reload
-antigen bundle osx
-
-if [ "$OSTYPE" != "cygwin" ];then
-    # This runs awefully slow on Cygwin
-    antigen bundle zsh-users/zsh-autosuggestions
-fi
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
-
 export TYPEWRITTEN_CURSOR="block"
 export TYPEWRITTEN_MULTILINE=false
-antigen theme reobin/typewritten
 
 # https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
-
-antigen apply
-
-# Set zsh-users/zsh-autosuggestions suggestion color
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
-
-# Keybindings for "zsh-history-substring-search" plugin
-bindkey '\eOA' history-substring-search-up
-bindkey '\eOB' history-substring-search-down
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent lifetime 4h
@@ -115,4 +73,18 @@ if command -v lsd &> /dev/null
 then
   alias ls="lsd"
 fi
+
+if [ ! -f ~/.local/bin/antibody ]; then
+    curl -sfL git.io/antibody | sh -s - -b ~/.local/bin
+fi
+
+source <(antibody init)
+antibody bundle < ~/.zsh_plugins
+
+# Set zsh-users/zsh-autosuggestions suggestion color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
+
+# Keybindings for "zsh-history-substring-search" plugin
+bindkey '\eOA' history-substring-search-up
+bindkey '\eOB' history-substring-search-down
 
