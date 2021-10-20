@@ -9,7 +9,6 @@ ohmyzsh/ohmyzsh path:plugins/redis-cli
 ohmyzsh/ohmyzsh path:plugins/ssh-agent
 ohmyzsh/ohmyzsh path:plugins/systemd
 ohmyzsh/ohmyzsh path:plugins/tmux
-ohmyzsh/ohmyzsh path:plugins/zsh_reload
 ohmyzsh/ohmyzsh path:plugins/osx
 ohmyzsh/ohmyzsh path:plugins/common-aliases
 
