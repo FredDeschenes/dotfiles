@@ -1,3 +1,5 @@
+source <(antibody init)
+
 if type "vivid" > /dev/null; then
   # https://github.com/sharkdp/vivid
   export LS_COLORS="$(vivid generate snazzy)"
@@ -24,10 +26,6 @@ if [ -f $HOME/.cargo/env ]; then
     source $HOME/.cargo/env
 fi
 
-if [ ! -d $HOME/.zsh/gradle-completion ]; then
-    git clone git://github.com/gradle/gradle-completion $HOME/.zsh/gradle-completion
-fi
-
 fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completions $fpath)
 
 export PATH=$HOME/.local/bin:/usr/local/sbin/:$PATH
@@ -38,7 +36,6 @@ export TYPEWRITTEN_MULTILINE=false
 # https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
 
-source <(antibody init)
 antibody bundle < ~/.zsh_plugins
 
 # Set zsh-users/zsh-autosuggestions suggestion color
