@@ -1,3 +1,7 @@
+if [ ! -f ~/.local/bin/antibody ]; then
+    curl -sfL git.io/antibody | sh -s - -b ~/.local/bin
+fi
+
 source <(antibody init)
 
 if type "vivid" > /dev/null; then
@@ -15,15 +19,6 @@ fi
 if grep -q Microsoft /proc/version; then
     # Use Windows Docker on WSL
     export DOCKER_HOST=tcp://localhost:2375
-fi
-
-prm_dir="$HOME/dev/prm"
-if [ -d $prm_dir ]; then
-    alias prm=". ${prm_dir}/prm.sh"
-fi
-
-if [ -f $HOME/.cargo/env ]; then
-    source $HOME/.cargo/env
 fi
 
 fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completions $fpath)
@@ -64,16 +59,6 @@ if type "thefuck" > /dev/null; then
     eval $(thefuck --alias)
 fi
 
-compdef gw='gradle'
-
-# Hook for desk activation
-[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-
-# Terminix initilization stuff
-if [[ $TERMINIX_ID ]] && [[ -f /etc/profile.d/vte.sh ]]; then
-    source /etc/profile.d/vte.sh
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if command -v lsd &> /dev/null
@@ -81,6 +66,3 @@ then
   alias ls="lsd"
 fi
 
-if [ ! -f ~/.local/bin/antibody ]; then
-    curl -sfL git.io/antibody | sh -s - -b ~/.local/bin
-fi
