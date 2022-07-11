@@ -87,7 +87,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'maralla/completor.vim'
 Plug 'saltstack/salt-vim'
 Plug 'wincent/terminus'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 if executable("ctags")
   Plug 'majutsushi/tagbar'
