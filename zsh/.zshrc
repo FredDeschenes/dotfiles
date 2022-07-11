@@ -8,6 +8,10 @@ fi
 
 source <(antibody init)
 
+if type "bat" > /dev/null; then
+  alias "cat"="bat"
+fi
+
 if type "vivid" > /dev/null; then
   # https://github.com/sharkdp/vivid
   export LS_COLORS="$(vivid generate snazzy)"
