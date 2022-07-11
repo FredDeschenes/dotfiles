@@ -63,9 +63,6 @@ alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ssh-genkey="ssh-keygen -o -a 100 -t ed25519"
 alias :q="exit"
 alias :Q="exit"
-if type "thefuck" > /dev/null; then
-    eval $(thefuck --alias)
-fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
