@@ -66,7 +66,5 @@ alias ssh-genkey="ssh-keygen -o -a 100 -t ed25519"
 alias :q="exit"
 alias :Q="exit"
 
-source_if_exists "$HOME/.fzf.zsh"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source_if_exists "$HOME/.p10k.zsh"
