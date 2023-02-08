@@ -11,7 +11,7 @@ ohmyzsh/ohmyzsh path:plugins/branch
 ohmyzsh/ohmyzsh path:plugins/docker
 ohmyzsh/ohmyzsh path:plugins/docker-compose
 ohmyzsh/ohmyzsh path:plugins/git
-ohmyzsh/ohmyzsh path:plugins/redis-cli
+#ohmyzsh/ohmyzsh path:plugins/redis-cli
 ohmyzsh/ohmyzsh path:plugins/ssh-agent
 ohmyzsh/ohmyzsh path:plugins/systemd
 ohmyzsh/ohmyzsh path:plugins/tmux

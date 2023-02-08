@@ -12,11 +12,11 @@ source_if_exists "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}
 source_if_exists "$HOME/.zshenv"
 source_if_exists "$HOME/.zsh_env"
 
-if [ ! -f ~/.local/bin/antibody ]; then
-    curl -sfL git.io/antibody | sh -s - -b ~/.local/bin
+if [ ! -d ${ZDOTDIR:-~}/.antidote ]; then
+  git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 fi
 
-source <(antibody init)
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
 if type "bat" > /dev/null; then
   alias "cat"="bat"
@@ -45,7 +45,7 @@ fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completion
 
 export PATH=$HOME/.local/bin:/usr/local/sbin/:$PATH
 
-antibody bundle < ~/.zsh_plugins
+antidote load
 
 # Set zsh-users/zsh-autosuggestions suggestion color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
