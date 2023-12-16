@@ -11,7 +11,21 @@ if [ ! -d ${ZDOTDIR:-~}/.antidote ]; then
   git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 fi
 
+export PATH=$HOME/.local/bin:$HOME/.fzf/bin/:/usr/local/sbin/:$PATH
+
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+# Note: Bash on Windows does not currently apply umask properly.
+if [[ "$(umask)" = "000" ]]; then
+  umask 0022
+
+  # https://github.com/wting/autojump/issues/474
+  unsetopt BG_NICE
+fi
+
+fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completions $fpath)
+
+antidote load
 
 if type "bat" > /dev/null; then
   alias "cat"="bat"
@@ -27,20 +41,6 @@ fi
 if type "lsd" > /dev/null; then
   alias ls="lsd"
 fi
-
-# Note: Bash on Windows does not currently apply umask properly.
-if [[ "$(umask)" = "000" ]]; then
-  umask 0022
-
-  # https://github.com/wting/autojump/issues/474
-  unsetopt BG_NICE
-fi
-
-fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completions $fpath)
-
-export PATH=$HOME/.local/bin:/usr/local/sbin/:$PATH
-
-antidote load
 
 # Set zsh-users/zsh-autosuggestions suggestion color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
