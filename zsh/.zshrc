@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 source_if_exists () {
   if [[ -r "$1" ]]; then
     source "$1"
@@ -68,5 +61,6 @@ alias ssh-genkey="ssh-keygen -o -a 100 -t ed25519"
 alias :q="exit"
 alias :Q="exit"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source_if_exists "$HOME/.p10k.zsh"
+PAGER=less
+
+eval "$(starship init zsh)"
