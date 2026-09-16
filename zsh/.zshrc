@@ -63,4 +63,18 @@ alias :Q="exit"
 
 PAGER=less
 
-eval "$(starship init zsh)"
+if type "starship" > /dev/null; then
+  eval "$(starship init zsh)"
+else
+  if [[ "$OSTYPE" == darwin* ]] || type "brew" > /dev/null; then
+    echo "starship is not installed. Install it with: brew install starship"
+  elif type "pacman" > /dev/null || [ -f /etc/arch-release ]; then
+    echo "starship is not installed. Install it with: sudo pacman -S starship"
+  elif type "apt" > /dev/null || type "apt-get" > /dev/null || [ -f /etc/debian_version ]; then
+    echo "starship is not installed. Install it with: sudo apt install starship"
+  elif type "winget" > /dev/null || type "winget.exe" > /dev/null || [[ "$OSTYPE" == cygwin* || "$OSTYPE" == msys* ]]; then
+    echo "starship is not installed. Install it with: winget install Starship.Starship"
+  else
+    echo "starship is not installed. Install it from: https://starship.rs"
+  fi
+fi
