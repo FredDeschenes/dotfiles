@@ -23,6 +23,10 @@ if [[ "$(umask)" = "000" ]]; then
   unsetopt BG_NICE
 fi
 
+if [ ! -d $HOME/.zfunc ]; then
+  mkdir ~/.zfunc
+fi
+
 fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completions $fpath)
 
 antidote load
