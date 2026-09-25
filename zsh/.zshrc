@@ -29,6 +29,11 @@ fi
 
 fpath=($HOME/.zfunc $HOME/.zsh/gradle-completion /usr/local/share/zsh-completions $fpath)
 
+# Needs to be before antidote load
+if type "copilot" > /dev/null; then
+  copilot completion zsh > "${fpath[1]}/_copilot"
+fi
+
 antidote load
 
 if type "bat" > /dev/null; then
