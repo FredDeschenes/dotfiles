@@ -87,3 +87,7 @@ else
     echo "starship is not installed. Install it from: https://starship.rs"
   fi
 fi
+
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmuxpack/tpack $HOME/.tmux/plugins/tpm
+fi
